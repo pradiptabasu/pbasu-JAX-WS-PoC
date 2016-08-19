@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://pradipta.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://pradipta.com" xmlns:intf="http://pradipta.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://pradipta.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="helloGreetings">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="helloGreetingsResponse">
+    <complexType>
+     <sequence>
+      <element name="helloGreetingsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="helloGreetingsRequest">
+
+      <wsdl:part element="impl:helloGreetings" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="helloGreetingsResponse">
+
+      <wsdl:part element="impl:helloGreetingsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PradiptaPublicServices">
+
+      <wsdl:operation name="helloGreetings">
+
+         <wsdl:input message="impl:helloGreetingsRequest" name="helloGreetingsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:helloGreetingsResponse" name="helloGreetingsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PradiptaPublicServicesSoapBinding" type="impl:PradiptaPublicServices">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="helloGreetings">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="helloGreetingsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="helloGreetingsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PradiptaPublicServicesService">
+
+      <wsdl:port binding="impl:PradiptaPublicServicesSoapBinding" name="PradiptaPublicServices">
+
+         <wsdlsoap:address location="http://localhost:8085/HelloWorldService/services/PradiptaPublicServices"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
